@@ -1,0 +1,9 @@
+.moduleBox {
+  width: 200px;
+  height: 200px;
+  background-color: chocolate;
+  color: white;
+  margin-top: 2rem;
+  padding: 10px;
+  border: 2px solid black;
+}

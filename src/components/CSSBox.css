@@ -1,0 +1,12 @@
+.css-box {
+  width: 200px;
+  height: 200px;
+  color: white;
+  padding: 20px;
+  border: 2px solid black;
+  margin-top: 2rem;
+  background-color: blueviolet;
+}
+.btn {
+  border-radius: 10px;
+}
