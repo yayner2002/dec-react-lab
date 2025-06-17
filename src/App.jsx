@@ -1,29 +1,32 @@
-import Product from "./components/Product.jsx";
-import UserFetcher from "./components/UserFetcher.jsx";
-import Timer from "./components/Timer.jsx";
-import HandleInputChange from "./components/HandleInputChange.jsx";
+import { Routes, Route, Link } from "react-router-dom";
+import Home from "./components/Home";
+import About from "./components/About";
+import Contact from "./components/Contact";
+import NotFound from "./components/NotFound";
+import UserProfile from "./components/UserProfile";
+import DashBoard from "./components/Dashboard";
+import Login from "./components/Login";
 
 function App() {
-  const products = [
-    { id: 1, name: "Laptop", description: "A high performance laptop" },
-    { id: 2, name: "Smartphone", description: "Latest model smartphone" },
-    { id: 3, name: "Headphones", description: "Noise-cancelling headphones" },
-  ];
   return (
     <>
-    <UserFetcher />
-    <Timer />
-    <HandleInputChange />
-      <div>
-        {products.map((product) => (
-          <Product
-            name={product.name}
-            description={product.description}
-            initLikes={0}
-            key={product.id}
-          />
-        ))}
-      </div>
+      <nav>
+        <Link to={"/"}>Home</Link>
+        <Link to={"/contact"}>Contact</Link>
+        <Link to={"/about"}>About</Link>
+      </nav>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/users/:userId" element={<UserProfile />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/dashboard" element={<DashBoard />}>
+          <Route path="stats" element={<h1>Stats</h1>} />
+          <Route path="settings" element={<h1>Settings</h1>} />
+        </Route>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
     </>
   );
 }
